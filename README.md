@@ -68,7 +68,7 @@ funzione secondaria() {
 See the [examples](./examples/src/main.rs) to get a rough sense of the whole
 syntax. That's it.
 
-## les contributions
+## per i collaboratori
 
 First of all, _grazie_ for considering participating to this joke, the
 Italian government will thank you later! Feel free to throw in a few identifiers
@@ -81,7 +81,7 @@ Feel free to introduce swear words: we will excuse your French.
 
 - I couldn't let the French have the only Rust joke translation
 
-## un grand merci
+## grazie
 
 - [@bnjbvr](https://github.com/bnjbvr/rouille) for the original rouille
 
