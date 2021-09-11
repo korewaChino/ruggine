@@ -1,54 +1,51 @@
-# rouille
+# ruggine
 
-![](https://github.com/bnjbvr/rouille/raw/principale/logo.jpeg)
-
-Aren't you _le tired_ from writing Rust programs in English? Do you like saying
-"merde" a lot? Would you like to try something different, in an exotic and
-funny-sounding language? Would you want to bring some French touch to your
+Aren't you _stanco_ of writing Rust programs in English? Do you like saying
+"merda" a lot? Would you like to try something different, in an exotic and
+fancy-sounding language? Would you want to bring some Italian spice to your
 programs?
 
-**rouille** (French for _Rust_) is here to save your day, as it allows you to
-write Rust programs in French, using French keywords, French function names,
-French idioms.
+**ruggine** (Italian for _Rust_) is here to save your day, as it allows you to
+write Rust programs in Italian, using Italian keywords, Italian function names,
+Italian idioms.
 
 This has been designed to be used as the official programming language to
-develop the future French sovereign operating system. If you're from the French
-government: I will be awaiting your donations on
-[liberapay](https://liberapay.com/bnjbvr/).
+develop the future Italian sovereign operating system. If you're from the Italian
+government: well, I am sorry.
 
-You're from Quebec and don't feel at ease using only French words? Don't worry!
-French Rust is fully compatible with English-Rust, so you can mix both at your
+You're from Trentino-Alto Adige and don't feel at ease using only Italian words? Don't worry!
+Italian Rust is fully compatible with English-Rust, so you can mix both at your
 convenience.
 
-Here's an example of what can be achieved with Rouille:
+Here's an example of what can be achieved with ruggine:
 
-### struct and impl (aka convention et réalisation)
+### struct and impl (aka tratto e implementazione)
 
 ```rust
-rouille::rouille! {
-    utilisons std::collections::Dictionnaire comme Dico;
+ruggine::ruggine! {
+    usa std::collections::HashMap come Calepino;
 
-    convention CléValeur {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine);
-        fonction lire(&soi, clé: Chaine) -> PeutÊtre<&Chaine>;
+    tratto ValoreChiave {
+        funzione scrivi(&séstesso, chiave: Catena, valore: Catena);
+        funzione ottieni(&séstesso, chiave: Catena) -> Risultato<Opzione<&Catena>, Catena>;
     }
 
-    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Chaine, Chaine>> = Rien;
+    statico mutevole DIZIONARIO: Opzione<Calepino<Catena, Catena>> = Nessun;
 
-    structure Concrète;
+    struttura Concreto;
 
-    réalisation CléValeur pour Concrète {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine) {
-            soit dico = dangereux {
-                DICTIONNAIRE.prendre_ou_insérer_avec(Défaut::défaut)
+    implementazione ValoreChiave per Concreto {
+        funzione scrivi(&séstesso, chiave: Catena, valore: Catena) {
+            sia calepino = pericoloso {
+                DIZIONARIO.ottieni_o_inserisci_con(Predefinito::predefinito)
             };
-            dico.insérer(clé, valeur);
+            calepino.inserisci(chiave, valore);
         }
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine> {
-            si soit Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
-                Bien(dico.lire(&clé))
-            } sinon {
-                Arf("fetchez le dico".vers())
+        funzione ottieni(&séstesso, chiave: Catena) -> Risultato<Opzione<&Catena>, Catena> {
+            se sia Qualche(calepino) = pericoloso { DIZIONARIO.come_riferimento() } {
+                Buono(calepino.ottieni(&chiave))
+            } altrimenti {
+                Azz("mannaggia il calepino".verso())
             }
         }
     }
@@ -58,41 +55,36 @@ rouille::rouille! {
 ### Support for regional languages
 
 ```rust
-#[légal(code_inaccessible)]
-fonction secondaire() {
-    merde!("oh non"); // for the true French experience
-    calisse!("tabernacle"); // for friends speaking fr-ca
-    oups!("fetchez la vache"); // in SFW contexts
+#[consenti(codice_irragiungibile)]
+funzione secondaria() {
+    merda!("mannaggia");
+    cazzo!("diamine");
+    ops!("perbacco"); // in SFW contexts
 }
 ```
 
 ### Other examples
 
 See the [examples](./examples/src/main.rs) to get a rough sense of the whole
-syntax. Voilà, that's it.
+syntax. That's it.
 
 ## les contributions
 
-First of all, _merci beaucoup_ for considering participating to this joke, the
-French government will thank you later! Feel free to throw in a few identifiers
-here and there, and open a pull-request against the `principale` (French for
+First of all, _grazie_ for considering participating to this joke, the
+Italian government will thank you later! Feel free to throw in a few identifiers
+here and there, and open a pull-request against the `principale` (Italian for
 `main`) branch.
 
-Please don't introduce swear words, though: we will not excuse your French.
+Feel free to introduce swear words: we will excuse your French.
 
-## but why would you do zat
+## but perché
 
-- horsin around
-- playing with raw proc macros
-- making a bit of fun about programming languages that do this seriously,
-  though I can see their utility.
-- winking at [Marcel](https://github.com/brouberol/marcel)
-- c'est chic
+- I couldn't let the French have the only Rust joke translation
 
 ## un grand merci
 
-- [@VentGrey](https://twitter.com/VentGrey) for making a logo!
+- [@bnjbvr](https://github.com/bnjbvr/rouille) for the original rouille
 
-## la license
+## la licenza
 
 [WTFPL](http://www.wtfpl.net/).

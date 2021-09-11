@@ -1,74 +1,74 @@
-rouille::rouille! {
-    externe cagette rouille;
+ruggine::ruggine! {
+    esterna cassa ruggine;
 
-    utilisons std::collections::Dictionnaire comme Dico;
+    usa std::collections::HashMap come Calepino;
 
-    convention CléValeur {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine);
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine>;
+    tratto ValoreChiave {
+        funzione scrivi(&séstesso, chiave: Catena, valore: Catena);
+        funzione ottieni(&séstesso, chiave: Catena) -> Risultato<Opzione<&Catena>, Catena>;
     }
 
-    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Chaine, Chaine>> = Rien;
+    statico mutevole DIZIONARIO: Opzione<Calepino<Catena, Catena>> = Nessun;
 
-    structure Concrète;
+    struttura Concreto;
 
-    réalisation CléValeur pour Concrète {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine) {
-            soit dico = dangereux {
-                DICTIONNAIRE.prendre_ou_insérer_avec(Défaut::défaut)
+    implementazione ValoreChiave per Concreto {
+        funzione scrivi(&séstesso, chiave: Catena, valore: Catena) {
+            sia calepino = pericoloso {
+                DIZIONARIO.ottieni_o_inserisci_con(Predefinito::predefinito)
             };
-            dico.insérer(clé, valeur);
+            calepino.inserisci(chiave, valore);
         }
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine> {
-            si soit Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
-                Bien(dico.lire(&clé))
-            } sinon {
-                Arf("fetchez le dico".vers())
+        funzione ottieni(&séstesso, chiave: Catena) -> Risultato<Opzione<&Catena>, Catena> {
+            se sia Qualche(calepino) = pericoloso { DIZIONARIO.come_riferimento() } {
+                Buono(calepino.ottieni(&chiave))
+            } altrimenti {
+                Azz("mannaggia il calepino".verso())
             }
         }
     }
 
-    public(cagette) fonction peut_etre(i: u32) -> PeutÊtre<Résultat<u32, Chaine>> {
-        si i % 2 == 1 {
-            si i == 42 {
-                Quelque(Arf(Chaine::depuis("merde")))
-            } sinon {
-                Quelque(Bien(33))
+    pubblico(cassa) funzione opzione(i: u32) -> Opzione<Risultato<u32, Catena>> {
+        se i % 2 == 1 {
+            se i == 42 {
+                Qualche(Azz(Catena::da("merda")))
+            } altrimenti {
+                Qualche(Buono(33))
             }
-        } sinon {
-            Rien
+        } altrimenti {
+            Nessun
         }
     }
 
-    asynchrone fonction exemple() {
+    asincrono funzione esempio() {
     }
 
-    asynchrone fonction exemple2() {
-        exemple().attend;
+    asincrono funzione esempio2() {
+        esempio().aspetta;
     }
 
-    fonction principale() {
-        soit mutable x = 31;
+    funzione principale() {
+        sia mutevole x = 31;
 
-        selon x {
+        combacia x {
             42 => {
-                affiche!("omelette du fromage")
+                affiggi!("pasta al sugo")
             }
-            _ => affiche!("voila")
+            _ => affiggi!("mamma mia")
         }
 
-        pour i de 0..10 {
-            soit val = boucle {
-                arrête i;
+        per i in 0..10 {
+            sia val = ciclo {
+                ferma i;
             };
 
-            tant que x < val {
+            fin che x < val {
                 x += 1;
             }
 
-            x = si soit Quelque(resultat) = peut_etre(i) {
-                resultat.déballer()
-            } sinon {
+            x = se sia Qualche(risultato) = opzione(i) {
+                risultato.disimballa()
+            } altrimenti {
                 12
             };
         }
@@ -76,10 +76,10 @@ rouille::rouille! {
         //secondaire();
     }
 
-    #[légal(code_inaccessible)]
-    fonction secondaire() {
-        merde!("oh non"); // for the true French experience
-        calisse!("tabernacle"); // for friends speaking fr-ca
-        oups!("fetchez la vache"); // in SFW contexts
+    #[consenti(codice_irragiungibile)]
+    funzione secondaria() {
+        merda!("mannaggia");
+        cazzo!("diamine");
+        ops!("perbacco"); // in SFW contexts
     }
 }
